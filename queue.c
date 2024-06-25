@@ -40,6 +40,3 @@ void destroyQueue(Queue *queue) {
     free(queue->data);
     free(queue);
 }
-
-
-//test
