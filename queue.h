@@ -5,7 +5,7 @@
 
 // Define constants for maximum sizes and the number of tellers
 #define MAX_QUEUE_SIZE 40
-#define NUM_TELLERS 4
+#define NUM_TELLERS 5
 #define MAX_PENDING_QUEUE 40
 
 // Define account types
@@ -36,5 +36,6 @@ int isQueueFull(Queue *q, int accountType);
 int isQueueEmpty(Queue *q);
 void enqueue(Queue *q, Transaction transaction);
 Transaction dequeue(Queue *q);
+void printQueueContents(Queue *q, const char *queueName);
 
 #endif // QUEUE_H

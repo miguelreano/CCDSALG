@@ -52,3 +52,19 @@ Transaction dequeue(Queue *q) {
     }
     return transaction; // Return the dequeued transaction
 }
+
+// Print the contents of the queue
+void printQueueContents(Queue *q, const char *queueName) {
+    printf("Contents of %s queue:\n", queueName);
+    if (isQueueEmpty(q)) {
+        printf("Queue is empty.\n");
+    } else {
+        int i = q->front;
+        for (int count = 0; count < q->size; count++) {
+            Transaction trans = q->transactions[i];
+            printf("Stub: %d, Amount: %d, Account Type: %s, Duration: %d\n",
+                   trans.stubNumber, trans.amount, accountTypeStr[trans.accountType], trans.duration);
+            i = (i + 1) % MAX_QUEUE_SIZE;
+        }
+    }
+}

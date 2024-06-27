@@ -5,6 +5,7 @@
 #include "stack.h"
 
 #define MAX_EXTRA_QUEUE_TRANSACTIONS 10
+#define NUM_TELLERS 5
 
 // Generate a random duration for the transaction based on the account type
 int getRandomDuration(int accountType) {
@@ -58,105 +59,70 @@ void OpenNewQueue(Queue *tellers, Queue *pendingQueue, int pendingQueueCondition
     }
 
     if (allFull && pendingQueue->size >= (pendingQueueCondition / 2)) {
+        printf("Opening 5th queue due to high pending queue and full regular queues.\n");
         initQueue(&tellers[4]);
-        printf("Activated the 5th queue due to all regular queues being full and pending queue conditions met.\n");
-
-        while (!isQueueEmpty(pendingQueue) && tellers[4].size < MAX_EXTRA_QUEUE_TRANSACTIONS) {
-            Transaction transaction = dequeue(pendingQueue);
-            enqueue(&tellers[4], transaction);
-        }
     }
 }
 
-// Consolidate and sort all transactions completed by tellers in ascending order
-void ConsolidateTransactions(Stack *completedTransactions, int numStacks) {
-    Stack allTransactions;
-    initStack(&allTransactions);
+// Consolidate transactions from all stacks into a single stack and display them
+void ConsolidateTransactions(Stack *completedTransactions, int numTellers) {
+    Stack consolidatedStack;
+    initStack(&consolidatedStack);
 
-    // Collect all transactions from each stack into a single stack
-    for (int i = 0; i < numStacks; i++) {
+    for (int i = 0; i < numTellers; i++) {
         while (!isStackEmpty(&completedTransactions[i])) {
-            push(&allTransactions, pop(&completedTransactions[i]));
+            push(&consolidatedStack, pop(&completedTransactions[i]));
         }
     }
 
-    // Sort transactions in ascending order by stub number
-    for (int i = 0; i < allTransactions.top; i++) {
-        for (int j = i + 1; j <= allTransactions.top; j++) {
-            if (allTransactions.transactions[i].stubNumber > allTransactions.transactions[j].stubNumber) {
-                Transaction temp = allTransactions.transactions[i];
-                allTransactions.transactions[i] = allTransactions.transactions[j];
-                allTransactions.transactions[j] = temp;
-            }
-        }
+    printf("Consolidated transactions:\n");
+    while (!isStackEmpty(&consolidatedStack)) {
+        Transaction trans = pop(&consolidatedStack);
+        printf("Transaction stub %d, amount %d, account type %s, duration %d minutes\n",
+               trans.stubNumber, trans.amount, accountTypeStr[trans.accountType], trans.duration);
     }
-
-    // Display sorted transactions
-    printf("Consolidated Transactions:\n");
-    for (int i = 0; i <= allTransactions.top; i++) {
-        printf("Stub Number: %d, Amount: %d, Account Type: %s, Duration: %d minutes\n",
-               allTransactions.transactions[i].stubNumber,
-               allTransactions.transactions[i].amount,
-               accountTypeStr[allTransactions.transactions[i].accountType],
-               allTransactions.transactions[i].duration);
-    }
-}
-
-// Display the main menu for user interaction
-void displayMenu(int totalTimeElapsed) {
-    int hours, minutes, seconds;
-    convertTime(totalTimeElapsed, &hours, &minutes, &seconds);
-    printf("\nBank Teller Simulation Menu:\n");
-    printf("1. Add customer to queue\n");
-    printf("2. Consolidate and display transactions\n");
-    printf("3. Exit\n");
-    printf("Total time elapsed: %02d:%02d:%02d (HH:MM:SS)\n", hours, minutes, seconds);
-    printf("Enter your choice: ");
 }
 
 int main() {
-    srand(time(NULL)); // Initialize random seed
+    srand(time(NULL));
 
-    Queue tellers[NUM_TELLERS + 1]; // Array of queues for each teller including the 5th queue
-    Stack completedTransactions[NUM_TELLERS]; // Array of stacks for completed transactions
-    Queue pendingQueue; // Pending queue for overflow customers
+    Queue tellers[NUM_TELLERS];
+    Stack completedTransactions[NUM_TELLERS];
+    Queue pendingQueue;
 
-    // Initialize queues and stacks
-    for (int i = 0; i < NUM_TELLERS + 1; i++) {
+    // Initialize all queues and stacks
+    for (int i = 0; i < NUM_TELLERS; i++) {
         initQueue(&tellers[i]);
-        if (i < NUM_TELLERS) {
-            initStack(&completedTransactions[i]);
-        }
+        initStack(&completedTransactions[i]);
     }
     initQueue(&pendingQueue);
 
-    int choice;
-    Transaction transaction;
-    int stubNumber = 1; // Stub number counter
-    int totalTimeElapsed = 0; // Initialize total time elapsed
+    int totalTimeElapsed = 0;
 
+    // Main loop
     while (1) {
-        displayMenu(totalTimeElapsed);
+        int choice;
+        int hours, minutes, seconds;
+        convertTime(totalTimeElapsed, &hours, &minutes, &seconds);
+        printf("\nBank Teller Simulation Menu:\n");
+        printf("1. Add customer to queue\n");
+        printf("2. Consolidate and display transactions\n");
+        printf("3. Exit\n");
+        printf("Total time elapsed: %02d:%02d:%02d (HH:MM:SS)\n", hours, minutes, seconds);
+        printf("Enter your choice: ");
         scanf("%d", &choice);
 
         switch (choice) {
-            case 1:
-                // Add customer to queue
-                printf("Enter transaction amount: ");
-                scanf("%d", &transaction.amount);
-                printf("Select account type (0: New, 1: Government, 2: Checking, 3: Savings): ");
-                scanf("%d", &transaction.accountType);
+            case 1: {
+                Transaction transaction;
+                printf("Enter transaction details (stub number, amount, account type): ");
+                scanf("%d %d %d", &transaction.stubNumber, &transaction.amount, &transaction.accountType);
                 transaction.duration = getRandomDuration(transaction.accountType);
-                transaction.stubNumber = stubNumber++;
 
-                // Determine the correct teller index based on account type
                 int tellerIndex;
-                if (transaction.accountType == NEW) {
-                    tellerIndex = 0; // Teller 1 handles new accounts
-                } else if (transaction.accountType == GOVERNMENT) {
-                    tellerIndex = 1; // Teller 2 handles government accounts
+                if (transaction.accountType == NEW || transaction.accountType == GOVERNMENT) {
+                    tellerIndex = transaction.accountType; // New and Government accounts have dedicated queues
                 } else if (transaction.accountType == CHECKING || transaction.accountType == SAVINGS) {
-                    // Tellers 3 and 4 handle checking and savings accounts
                     // Distribute evenly among the available tellers
                     tellerIndex = 2 + (transaction.accountType == CHECKING ? 0 : 1);
                 } else {
@@ -181,17 +147,20 @@ int main() {
                     }
                 } else {
                     enqueue(&tellers[tellerIndex], transaction);
-                    processTransaction(&tellers[tellerIndex], &completedTransactions[tellerIndex], &totalTimeElapsed);
+                }
+                break;
+            }
+
+            case 2:
+                // Process all transactions in all tellers
+                for (int i = 0; i < NUM_TELLERS; i++) {
+                    processTransaction(&tellers[i], &completedTransactions[i], &totalTimeElapsed);
                 }
                 break;
 
-            case 2:
-                // Consolidate and display all completed transactions
-                ConsolidateTransactions(completedTransactions, NUM_TELLERS);
-                break;
-
             case 3:
-                // Exit the program
+                // Consolidate and display all completed transactions before exiting
+                ConsolidateTransactions(completedTransactions, NUM_TELLERS);
                 printf("Exiting...\n");
                 exit(0);
 
@@ -199,6 +168,14 @@ int main() {
                 // Handle invalid menu choice
                 printf("Invalid choice. Try again.\n");
         }
+
+        // Print contents of each teller queue
+        for (int i = 0; i < NUM_TELLERS; i++) {
+            char queueName[20];
+            snprintf(queueName, sizeof(queueName), "Teller %d", i + 1);
+            printQueueContents(&tellers[i], queueName);
+        }
+        printQueueContents(&pendingQueue, "Pending");
     }
 
     return 0;
