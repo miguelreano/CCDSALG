@@ -4,10 +4,10 @@ Bank Teller Simulation Menu:
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Enter transaction details (stub number, amount, account type): Contents of Teller 1 queue:
-Queue is empty.
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
 Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
+Queue is empty.
 Contents of Teller 3 queue:
 Queue is empty.
 Contents of Teller 4 queue:
@@ -22,11 +22,52 @@ Bank Teller Simulation Menu:
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Invalid choice. Try again.
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Contents of Teller 2 queue:
+Queue is empty.
+Contents of Teller 3 queue:
+Queue is empty.
+Contents of Teller 4 queue:
+Queue is empty.
+Contents of Teller 5 queue:
+Queue is empty.
+Contents of Pending queue:
+Queue is empty.
+
+Bank Teller Simulation Menu:
+1. Add customer to queue
+2. Consolidate and display transactions
+3. Exit
+Total time elapsed: 00:00:00 (HH:MM:SS)
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
+Contents of Teller 2 queue:
+Queue is empty.
+Contents of Teller 3 queue:
+Queue is empty.
+Contents of Teller 4 queue:
+Queue is empty.
+Contents of Teller 5 queue:
+Queue is empty.
+Contents of Pending queue:
+Queue is empty.
+
+Bank Teller Simulation Menu:
+1. Add customer to queue
+2. Consolidate and display transactions
+3. Exit
+Total time elapsed: 00:00:00 (HH:MM:SS)
+Enter your choice: Enter transaction details (amount, account type): Transaction enqueued to pending queue.
 Contents of Teller 1 queue:
-Queue is empty.
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
 Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
+Queue is empty.
 Contents of Teller 3 queue:
 Queue is empty.
 Contents of Teller 4 queue:
@@ -34,18 +75,109 @@ Queue is empty.
 Contents of Teller 5 queue:
 Queue is empty.
 Contents of Pending queue:
-Queue is empty.
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Invalid choice. Try again.
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
+Contents of Teller 2 queue:
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Contents of Teller 3 queue:
+Queue is empty.
+Contents of Teller 4 queue:
+Queue is empty.
+Contents of Teller 5 queue:
+Queue is empty.
+Contents of Pending queue:
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+
+Bank Teller Simulation Menu:
+1. Add customer to queue
+2. Consolidate and display transactions
+3. Exit
+Total time elapsed: 00:00:00 (HH:MM:SS)
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
+Contents of Teller 2 queue:
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Contents of Teller 3 queue:
+Queue is empty.
+Contents of Teller 4 queue:
+Queue is empty.
+Contents of Teller 5 queue:
+Queue is empty.
+Contents of Pending queue:
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+
+Bank Teller Simulation Menu:
+1. Add customer to queue
+2. Consolidate and display transactions
+3. Exit
+Total time elapsed: 00:00:00 (HH:MM:SS)
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
+Contents of Teller 2 queue:
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Contents of Teller 3 queue:
+Queue is empty.
+Contents of Teller 4 queue:
+Queue is empty.
+Contents of Teller 5 queue:
+Queue is empty.
+Contents of Pending queue:
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+
+Bank Teller Simulation Menu:
+1. Add customer to queue
+2. Consolidate and display transactions
+3. Exit
+Total time elapsed: 00:00:00 (HH:MM:SS)
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
+Contents of Teller 2 queue:
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
+Contents of Teller 3 queue:
+Queue is empty.
+Contents of Teller 4 queue:
+Queue is empty.
+Contents of Teller 5 queue:
+Queue is empty.
+Contents of Pending queue:
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+
+Bank Teller Simulation Menu:
+1. Add customer to queue
+2. Consolidate and display transactions
+3. Exit
+Total time elapsed: 00:00:00 (HH:MM:SS)
+Enter your choice: Enter transaction details (amount, account type): Transaction enqueued to pending queue.
 Contents of Teller 1 queue:
-Queue is empty.
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
 Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
 Contents of Teller 3 queue:
 Queue is empty.
 Contents of Teller 4 queue:
@@ -53,372 +185,398 @@ Queue is empty.
 Contents of Teller 5 queue:
 Queue is empty.
 Contents of Pending queue:
-Queue is empty.
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Enter transaction details (stub number, amount, account type): Contents of Teller 1 queue:
-Queue is empty.
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
 Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
-Stub: 200, Amount: 0, Account Type: Government, Duration: 15
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
 Contents of Teller 3 queue:
-Queue is empty.
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
 Contents of Teller 4 queue:
 Queue is empty.
 Contents of Teller 5 queue:
 Queue is empty.
 Contents of Pending queue:
-Queue is empty.
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Invalid choice. Try again.
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
+Contents of Teller 2 queue:
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
+Contents of Teller 3 queue:
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Contents of Teller 4 queue:
+Queue is empty.
+Contents of Teller 5 queue:
+Queue is empty.
+Contents of Pending queue:
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+
+Bank Teller Simulation Menu:
+1. Add customer to queue
+2. Consolidate and display transactions
+3. Exit
+Total time elapsed: 00:00:00 (HH:MM:SS)
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
+Contents of Teller 2 queue:
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
+Contents of Teller 3 queue:
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Stub: 12, Amount: 650, Account Type: Checking, Duration: 6
+Contents of Teller 4 queue:
+Queue is empty.
+Contents of Teller 5 queue:
+Queue is empty.
+Contents of Pending queue:
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+
+Bank Teller Simulation Menu:
+1. Add customer to queue
+2. Consolidate and display transactions
+3. Exit
+Total time elapsed: 00:00:00 (HH:MM:SS)
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
+Contents of Teller 2 queue:
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
+Contents of Teller 3 queue:
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Stub: 12, Amount: 650, Account Type: Checking, Duration: 6
+Stub: 13, Amount: 700, Account Type: Checking, Duration: 6
+Contents of Teller 4 queue:
+Queue is empty.
+Contents of Teller 5 queue:
+Queue is empty.
+Contents of Pending queue:
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+
+Bank Teller Simulation Menu:
+1. Add customer to queue
+2. Consolidate and display transactions
+3. Exit
+Total time elapsed: 00:00:00 (HH:MM:SS)
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
+Contents of Teller 2 queue:
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
+Contents of Teller 3 queue:
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Stub: 12, Amount: 650, Account Type: Checking, Duration: 6
+Stub: 13, Amount: 700, Account Type: Checking, Duration: 6
+Stub: 14, Amount: 750, Account Type: Checking, Duration: 8
+Contents of Teller 4 queue:
+Queue is empty.
+Contents of Teller 5 queue:
+Queue is empty.
+Contents of Pending queue:
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+
+Bank Teller Simulation Menu:
+1. Add customer to queue
+2. Consolidate and display transactions
+3. Exit
+Total time elapsed: 00:00:00 (HH:MM:SS)
+Enter your choice: Enter transaction details (amount, account type): Transaction enqueued to pending queue.
 Contents of Teller 1 queue:
-Queue is empty.
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
 Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
-Stub: 200, Amount: 0, Account Type: Government, Duration: 15
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
 Contents of Teller 3 queue:
-Queue is empty.
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Stub: 12, Amount: 650, Account Type: Checking, Duration: 6
+Stub: 13, Amount: 700, Account Type: Checking, Duration: 6
+Stub: 14, Amount: 750, Account Type: Checking, Duration: 8
 Contents of Teller 4 queue:
 Queue is empty.
 Contents of Teller 5 queue:
 Queue is empty.
 Contents of Pending queue:
-Queue is empty.
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+Stub: 15, Amount: 800, Account Type: Checking, Duration: 7
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Invalid choice. Try again.
-Contents of Teller 1 queue:
-Queue is empty.
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
 Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
-Stub: 200, Amount: 0, Account Type: Government, Duration: 15
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
 Contents of Teller 3 queue:
-Queue is empty.
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Stub: 12, Amount: 650, Account Type: Checking, Duration: 6
+Stub: 13, Amount: 700, Account Type: Checking, Duration: 6
+Stub: 14, Amount: 750, Account Type: Checking, Duration: 8
 Contents of Teller 4 queue:
-Queue is empty.
+Stub: 16, Amount: 850, Account Type: Savings, Duration: 6
 Contents of Teller 5 queue:
 Queue is empty.
 Contents of Pending queue:
-Queue is empty.
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+Stub: 15, Amount: 800, Account Type: Checking, Duration: 7
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Enter transaction details (stub number, amount, account type): Contents of Teller 1 queue:
-Queue is empty.
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
 Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
-Stub: 200, Amount: 0, Account Type: Government, Duration: 15
-Stub: 300, Amount: 1, Account Type: Government, Duration: 13
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
 Contents of Teller 3 queue:
-Queue is empty.
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Stub: 12, Amount: 650, Account Type: Checking, Duration: 6
+Stub: 13, Amount: 700, Account Type: Checking, Duration: 6
+Stub: 14, Amount: 750, Account Type: Checking, Duration: 8
 Contents of Teller 4 queue:
-Queue is empty.
+Stub: 16, Amount: 850, Account Type: Savings, Duration: 6
+Stub: 17, Amount: 900, Account Type: Savings, Duration: 5
 Contents of Teller 5 queue:
 Queue is empty.
 Contents of Pending queue:
-Queue is empty.
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+Stub: 15, Amount: 800, Account Type: Checking, Duration: 7
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Invalid choice. Try again.
-Contents of Teller 1 queue:
-Queue is empty.
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
 Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
-Stub: 200, Amount: 0, Account Type: Government, Duration: 15
-Stub: 300, Amount: 1, Account Type: Government, Duration: 13
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
 Contents of Teller 3 queue:
-Queue is empty.
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Stub: 12, Amount: 650, Account Type: Checking, Duration: 6
+Stub: 13, Amount: 700, Account Type: Checking, Duration: 6
+Stub: 14, Amount: 750, Account Type: Checking, Duration: 8
 Contents of Teller 4 queue:
-Queue is empty.
+Stub: 16, Amount: 850, Account Type: Savings, Duration: 6
+Stub: 17, Amount: 900, Account Type: Savings, Duration: 5
+Stub: 18, Amount: 950, Account Type: Savings, Duration: 7
 Contents of Teller 5 queue:
 Queue is empty.
 Contents of Pending queue:
-Queue is empty.
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+Stub: 15, Amount: 800, Account Type: Checking, Duration: 7
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Enter transaction details (stub number, amount, account type): Contents of Teller 1 queue:
-Queue is empty.
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
 Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
-Stub: 200, Amount: 0, Account Type: Government, Duration: 15
-Stub: 300, Amount: 1, Account Type: Government, Duration: 13
-Stub: 1, Amount: 400, Account Type: Government, Duration: 12
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
 Contents of Teller 3 queue:
-Queue is empty.
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Stub: 12, Amount: 650, Account Type: Checking, Duration: 6
+Stub: 13, Amount: 700, Account Type: Checking, Duration: 6
+Stub: 14, Amount: 750, Account Type: Checking, Duration: 8
 Contents of Teller 4 queue:
-Queue is empty.
+Stub: 16, Amount: 850, Account Type: Savings, Duration: 6
+Stub: 17, Amount: 900, Account Type: Savings, Duration: 5
+Stub: 18, Amount: 950, Account Type: Savings, Duration: 7
+Stub: 19, Amount: 1000, Account Type: Savings, Duration: 7
 Contents of Teller 5 queue:
 Queue is empty.
 Contents of Pending queue:
-Queue is empty.
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+Stub: 15, Amount: 800, Account Type: Checking, Duration: 7
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Enter transaction details (stub number, amount, account type): Transaction enqueued to pending queue.
-Contents of Teller 1 queue:
-Queue is empty.
+Enter your choice: Enter transaction details (amount, account type): Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
 Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
-Stub: 200, Amount: 0, Account Type: Government, Duration: 15
-Stub: 300, Amount: 1, Account Type: Government, Duration: 13
-Stub: 1, Amount: 400, Account Type: Government, Duration: 12
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
 Contents of Teller 3 queue:
-Queue is empty.
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Stub: 12, Amount: 650, Account Type: Checking, Duration: 6
+Stub: 13, Amount: 700, Account Type: Checking, Duration: 6
+Stub: 14, Amount: 750, Account Type: Checking, Duration: 8
 Contents of Teller 4 queue:
-Queue is empty.
+Stub: 16, Amount: 850, Account Type: Savings, Duration: 6
+Stub: 17, Amount: 900, Account Type: Savings, Duration: 5
+Stub: 18, Amount: 950, Account Type: Savings, Duration: 7
+Stub: 19, Amount: 1000, Account Type: Savings, Duration: 7
+Stub: 20, Amount: 1050, Account Type: Savings, Duration: 6
 Contents of Teller 5 queue:
 Queue is empty.
 Contents of Pending queue:
-Stub: 450, Amount: 1, Account Type: Government, Duration: 10
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+Stub: 15, Amount: 800, Account Type: Checking, Duration: 7
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Invalid choice. Try again.
+Enter your choice: Enter transaction details (amount, account type): Transaction enqueued to pending queue.
 Contents of Teller 1 queue:
-Queue is empty.
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
 Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
-Stub: 200, Amount: 0, Account Type: Government, Duration: 15
-Stub: 300, Amount: 1, Account Type: Government, Duration: 13
-Stub: 1, Amount: 400, Account Type: Government, Duration: 12
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
 Contents of Teller 3 queue:
-Queue is empty.
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Stub: 12, Amount: 650, Account Type: Checking, Duration: 6
+Stub: 13, Amount: 700, Account Type: Checking, Duration: 6
+Stub: 14, Amount: 750, Account Type: Checking, Duration: 8
 Contents of Teller 4 queue:
-Queue is empty.
+Stub: 16, Amount: 850, Account Type: Savings, Duration: 6
+Stub: 17, Amount: 900, Account Type: Savings, Duration: 5
+Stub: 18, Amount: 950, Account Type: Savings, Duration: 7
+Stub: 19, Amount: 1000, Account Type: Savings, Duration: 7
+Stub: 20, Amount: 1050, Account Type: Savings, Duration: 6
 Contents of Teller 5 queue:
 Queue is empty.
 Contents of Pending queue:
-Stub: 450, Amount: 1, Account Type: Government, Duration: 10
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+Stub: 15, Amount: 800, Account Type: Checking, Duration: 7
+Stub: 21, Amount: 1100, Account Type: Savings, Duration: 5
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Enter transaction details (stub number, amount, account type): Contents of Teller 1 queue:
-Queue is empty.
-Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
-Stub: 200, Amount: 0, Account Type: Government, Duration: 15
-Stub: 300, Amount: 1, Account Type: Government, Duration: 13
-Stub: 1, Amount: 400, Account Type: Government, Duration: 12
-Contents of Teller 3 queue:
-Stub: 1, Amount: 550, Account Type: Checking, Duration: 5
-Contents of Teller 4 queue:
-Queue is empty.
-Contents of Teller 5 queue:
-Queue is empty.
-Contents of Pending queue:
-Stub: 450, Amount: 1, Account Type: Government, Duration: 10
-
-Bank Teller Simulation Menu:
-1. Add customer to queue
-2. Consolidate and display transactions
-3. Exit
-Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Enter transaction details (stub number, amount, account type): Transaction enqueued to pending queue.
-Contents of Teller 1 queue:
-Queue is empty.
-Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
-Stub: 200, Amount: 0, Account Type: Government, Duration: 15
-Stub: 300, Amount: 1, Account Type: Government, Duration: 13
-Stub: 1, Amount: 400, Account Type: Government, Duration: 12
-Contents of Teller 3 queue:
-Stub: 1, Amount: 550, Account Type: Checking, Duration: 5
-Contents of Teller 4 queue:
-Queue is empty.
-Contents of Teller 5 queue:
-Queue is empty.
-Contents of Pending queue:
-Stub: 450, Amount: 1, Account Type: Government, Duration: 10
-Stub: 600, Amount: 2, Account Type: Government, Duration: 13
-
-Bank Teller Simulation Menu:
-1. Add customer to queue
-2. Consolidate and display transactions
-3. Exit
-Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Invalid choice. Try again.
-Contents of Teller 1 queue:
-Queue is empty.
-Contents of Teller 2 queue:
-Stub: 100, Amount: 0, Account Type: Government, Duration: 13
-Stub: 200, Amount: 0, Account Type: Government, Duration: 15
-Stub: 300, Amount: 1, Account Type: Government, Duration: 13
-Stub: 1, Amount: 400, Account Type: Government, Duration: 12
-Contents of Teller 3 queue:
-Stub: 1, Amount: 550, Account Type: Checking, Duration: 5
-Contents of Teller 4 queue:
-Queue is empty.
-Contents of Teller 5 queue:
-Queue is empty.
-Contents of Pending queue:
-Stub: 450, Amount: 1, Account Type: Government, Duration: 10
-Stub: 600, Amount: 2, Account Type: Government, Duration: 13
-
-Bank Teller Simulation Menu:
-1. Add customer to queue
-2. Consolidate and display transactions
-3. Exit
-Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Processed transaction stub 100, amount 0, account type Government, duration 13 minutes
-Processed transaction stub 200, amount 0, account type Government, duration 15 minutes
-Processed transaction stub 300, amount 1, account type Government, duration 13 minutes
-Processed transaction stub 1, amount 400, account type Government, duration 12 minutes
-Processed transaction stub 1, amount 550, account type Checking, duration 5 minutes
-Contents of Teller 1 queue:
-Queue is empty.
-Contents of Teller 2 queue:
-Queue is empty.
-Contents of Teller 3 queue:
-Queue is empty.
-Contents of Teller 4 queue:
-Queue is empty.
-Contents of Teller 5 queue:
-Queue is empty.
-Contents of Pending queue:
-Stub: 450, Amount: 1, Account Type: Government, Duration: 10
-Stub: 600, Amount: 2, Account Type: Government, Duration: 13
-
-Bank Teller Simulation Menu:
-1. Add customer to queue
-2. Consolidate and display transactions
-3. Exit
-Total time elapsed: 00:58:00 (HH:MM:SS)
-Enter your choice: Enter transaction details (stub number, amount, account type): Contents of Teller 1 queue:
-Queue is empty.
-Contents of Teller 2 queue:
-Stub: 700, Amount: 2, Account Type: Government, Duration: 13
-Contents of Teller 3 queue:
-Queue is empty.
-Contents of Teller 4 queue:
-Queue is empty.
-Contents of Teller 5 queue:
-Queue is empty.
-Contents of Pending queue:
-Stub: 450, Amount: 1, Account Type: Government, Duration: 10
-Stub: 600, Amount: 2, Account Type: Government, Duration: 13
-
-Bank Teller Simulation Menu:
-1. Add customer to queue
-2. Consolidate and display transactions
-3. Exit
-Total time elapsed: 00:58:00 (HH:MM:SS)
-Enter your choice: Invalid choice. Try again.
-Contents of Teller 1 queue:
-Queue is empty.
-Contents of Teller 2 queue:
-Stub: 700, Amount: 2, Account Type: Government, Duration: 13
-Contents of Teller 3 queue:
-Queue is empty.
-Contents of Teller 4 queue:
-Queue is empty.
-Contents of Teller 5 queue:
-Queue is empty.
-Contents of Pending queue:
-Stub: 450, Amount: 1, Account Type: Government, Duration: 10
-Stub: 600, Amount: 2, Account Type: Government, Duration: 13
-
-Bank Teller Simulation Menu:
-1. Add customer to queue
-2. Consolidate and display transactions
-3. Exit
-Total time elapsed: 00:58:00 (HH:MM:SS)
-Enter your choice: Processed transaction stub 700, amount 2, account type Government, duration 13 minutes
-Contents of Teller 1 queue:
-Queue is empty.
-Contents of Teller 2 queue:
-Queue is empty.
-Contents of Teller 3 queue:
-Queue is empty.
-Contents of Teller 4 queue:
-Queue is empty.
-Contents of Teller 5 queue:
-Queue is empty.
-Contents of Pending queue:
-Stub: 450, Amount: 1, Account Type: Government, Duration: 10
-Stub: 600, Amount: 2, Account Type: Government, Duration: 13
-
-Bank Teller Simulation Menu:
-1. Add customer to queue
-2. Consolidate and display transactions
-3. Exit
-Total time elapsed: 01:11:00 (HH:MM:SS)
-Enter your choice: Enter transaction details (stub number, amount, account type): Contents of Teller 1 queue:
-Queue is empty.
-Contents of Teller 2 queue:
-Stub: 800, Amount: 2, Account Type: Government, Duration: 14
-Contents of Teller 3 queue:
-Queue is empty.
-Contents of Teller 4 queue:
-Queue is empty.
-Contents of Teller 5 queue:
-Queue is empty.
-Contents of Pending queue:
-Stub: 450, Amount: 1, Account Type: Government, Duration: 10
-Stub: 600, Amount: 2, Account Type: Government, Duration: 13
-
-Bank Teller Simulation Menu:
-1. Add customer to queue
-2. Consolidate and display transactions
-3. Exit
-Total time elapsed: 01:11:00 (HH:MM:SS)
-Enter your choice: Invalid choice. Try again.
-Contents of Teller 1 queue:
-Queue is empty.
-Contents of Teller 2 queue:
-Stub: 800, Amount: 2, Account Type: Government, Duration: 14
-Contents of Teller 3 queue:
-Queue is empty.
-Contents of Teller 4 queue:
-Queue is empty.
-Contents of Teller 5 queue:
-Queue is empty.
-Contents of Pending queue:
-Stub: 450, Amount: 1, Account Type: Government, Duration: 10
-Stub: 600, Amount: 2, Account Type: Government, Duration: 13
-
-Bank Teller Simulation Menu:
-1. Add customer to queue
-2. Consolidate and display transactions
-3. Exit
-Total time elapsed: 01:11:00 (HH:MM:SS)
 Enter your choice: Consolidated transactions:
-Transaction stub 1, amount 550, account type Checking, duration 5 minutes
-Transaction stub 100, amount 0, account type Government, duration 13 minutes
-Transaction stub 200, amount 0, account type Government, duration 15 minutes
-Transaction stub 300, amount 1, account type Government, duration 13 minutes
-Transaction stub 1, amount 400, account type Government, duration 12 minutes
-Transaction stub 700, amount 2, account type Government, duration 13 minutes
+Contents of Teller 1 queue:
+Stub: 1, Amount: 100, Account Type: New, Duration: 8
+Stub: 2, Amount: 150, Account Type: New, Duration: 9
+Stub: 3, Amount: 200, Account Type: New, Duration: 8
+Contents of Teller 2 queue:
+Stub: 5, Amount: 300, Account Type: Government, Duration: 15
+Stub: 6, Amount: 350, Account Type: Government, Duration: 15
+Stub: 7, Amount: 400, Account Type: Government, Duration: 14
+Stub: 8, Amount: 450, Account Type: Government, Duration: 15
+Contents of Teller 3 queue:
+Stub: 10, Amount: 550, Account Type: Checking, Duration: 7
+Stub: 11, Amount: 600, Account Type: Checking, Duration: 7
+Stub: 12, Amount: 650, Account Type: Checking, Duration: 6
+Stub: 13, Amount: 700, Account Type: Checking, Duration: 6
+Stub: 14, Amount: 750, Account Type: Checking, Duration: 8
+Contents of Teller 4 queue:
+Stub: 16, Amount: 850, Account Type: Savings, Duration: 6
+Stub: 17, Amount: 900, Account Type: Savings, Duration: 5
+Stub: 18, Amount: 950, Account Type: Savings, Duration: 7
+Stub: 19, Amount: 1000, Account Type: Savings, Duration: 7
+Stub: 20, Amount: 1050, Account Type: Savings, Duration: 6
+Contents of Teller 5 queue:
+Queue is empty.
+Contents of Pending queue:
+Stub: 4, Amount: 250, Account Type: New, Duration: 10
+Stub: 9, Amount: 500, Account Type: Government, Duration: 15
+Stub: 15, Amount: 800, Account Type: Checking, Duration: 7
+Stub: 21, Amount: 1100, Account Type: Savings, Duration: 5
+
+Bank Teller Simulation Menu:
+1. Add customer to queue
+2. Consolidate and display transactions
+3. Exit
+Total time elapsed: 00:00:00 (HH:MM:SS)
+Enter your choice: Consolidated transactions:
 Exiting...

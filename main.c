@@ -44,7 +44,7 @@ void processTransaction(Queue *q, Stack *s, int *totalTimeElapsed) {
 void convertTime(int totalTimeElapsed, int *hours, int *minutes, int *seconds) {
     *hours = totalTimeElapsed / 60;
     *minutes = totalTimeElapsed % 60;
-    *seconds = (*minutes * 60) % 60;
+    *seconds = 0; // No need to compute seconds from minutes
 }
 
 // Activate the 5th queue if all regular queues (savings and checking) are full and pending queue is at least 50% capacity
@@ -98,6 +98,7 @@ int main() {
     initQueue(&pendingQueue);
 
     int totalTimeElapsed = 0;
+    int stubNumber = 1; // Initialize the stub number
 
     // Main loop
     while (1) {
@@ -115,8 +116,9 @@ int main() {
         switch (choice) {
             case 1: {
                 Transaction transaction;
-                printf("Enter transaction details (stub number, amount, account type): ");
-                scanf("%d %d %d", &transaction.stubNumber, &transaction.amount, &transaction.accountType);
+                transaction.stubNumber = stubNumber++; // Automatically assign a stub number
+                printf("Enter transaction details (amount, account type): ");
+                scanf("%d %d", &transaction.amount, &transaction.accountType);
                 transaction.duration = getRandomDuration(transaction.accountType);
 
                 int tellerIndex;
@@ -152,10 +154,8 @@ int main() {
             }
 
             case 2:
-                // Process all transactions in all tellers
-                for (int i = 0; i < NUM_TELLERS; i++) {
-                    processTransaction(&tellers[i], &completedTransactions[i], &totalTimeElapsed);
-                }
+                // Consolidate and display all completed transactions without processing pending and queued transactions
+                ConsolidateTransactions(completedTransactions, NUM_TELLERS);
                 break;
 
             case 3:
