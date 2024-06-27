@@ -6,6 +6,7 @@
 // Define constants for maximum sizes and the number of tellers
 #define MAX_QUEUE_SIZE 40
 #define NUM_TELLERS 4
+#define MAX_PENDING_QUEUE 40
 
 // Define account types
 #define NEW 0

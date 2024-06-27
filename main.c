@@ -32,8 +32,8 @@ void processTransaction(Queue *q, Stack *s, int *totalTimeElapsed) {
         Transaction trans = dequeue(q);
         push(s, trans);
         *totalTimeElapsed += trans.duration;
-        printf("Processed transaction amount %d, account type %s, duration %d minutes\n",
-               trans.amount, accountTypeStr[trans.accountType], trans.duration);
+        printf("Processed transaction stub %d, amount %d, account type %s, duration %d minutes\n",
+               trans.stubNumber, trans.amount, accountTypeStr[trans.accountType], trans.duration);
     }
 }
 
@@ -56,10 +56,10 @@ void consolidateTransactions(Stack stacks[], int numStacks) {
         }
     }
 
-    // Sort transactions in ascending order by amount
+    // Sort transactions in ascending order by stub number
     for (int i = 0; i < allTransactions.top; i++) {
         for (int j = i + 1; j <= allTransactions.top; j++) {
-            if (allTransactions.transactions[i].amount > allTransactions.transactions[j].amount) {
+            if (allTransactions.transactions[i].stubNumber > allTransactions.transactions[j].stubNumber) {
                 Transaction temp = allTransactions.transactions[i];
                 allTransactions.transactions[i] = allTransactions.transactions[j];
                 allTransactions.transactions[j] = temp;
@@ -70,7 +70,11 @@ void consolidateTransactions(Stack stacks[], int numStacks) {
     // Display sorted transactions
     printf("Consolidated Transactions:\n");
     for (int i = 0; i <= allTransactions.top; i++) {
-        printf("Amount: %d, Account Type: %s, Duration: %d minutes\n", allTransactions.transactions[i].amount, accountTypeStr[allTransactions.transactions[i].accountType], allTransactions.transactions[i].duration);
+        printf("Stub Number: %d, Amount: %d, Account Type: %s, Duration: %d minutes\n",
+               allTransactions.transactions[i].stubNumber,
+               allTransactions.transactions[i].amount,
+               accountTypeStr[allTransactions.transactions[i].accountType],
+               allTransactions.transactions[i].duration);
     }
 }
 
@@ -91,15 +95,18 @@ int main() {
 
     Queue tellers[NUM_TELLERS]; // Array of queues for each teller
     Stack completedTransactions[NUM_TELLERS]; // Array of stacks for completed transactions
+    Queue pendingQueue; // Pending queue for overflow customers
 
     // Initialize queues and stacks
     for (int i = 0; i < NUM_TELLERS; i++) {
         initQueue(&tellers[i]);
         initStack(&completedTransactions[i]);
     }
+    initQueue(&pendingQueue);
 
     int choice;
     Transaction transaction;
+    int stubNumber = 1; // Stub number counter
     int totalTimeElapsed = 0; // Initialize total time elapsed
 
     while (1) {
@@ -114,6 +121,7 @@ int main() {
                 printf("Select account type (0: New, 1: Government, 2: Checking, 3: Savings): ");
                 scanf("%d", &transaction.accountType);
                 transaction.duration = getRandomDuration(transaction.accountType);
+                transaction.stubNumber = stubNumber++;
 
                 // Determine the correct teller index based on account type
                 int tellerIndex;
@@ -130,8 +138,21 @@ int main() {
                     continue;
                 }
 
-                enqueue(&tellers[tellerIndex], transaction);
-                processTransaction(&tellers[tellerIndex], &completedTransactions[tellerIndex], &totalTimeElapsed);
+                // Check if teller queue is full
+                if (isQueueFull(&tellers[tellerIndex], transaction.accountType)) {
+                    // Check if pending queue is full
+                    if (isQueueFull(&pendingQueue, NEW) && isQueueFull(&pendingQueue, GOVERNMENT) &&
+                        isQueueFull(&pendingQueue, CHECKING) && isQueueFull(&pendingQueue, SAVINGS)) {
+                        printf("All queues are full. Cannot enqueue transaction.\n");
+                        continue;
+                    } else {
+                        enqueue(&pendingQueue, transaction);
+                        printf("Transaction enqueued to pending queue.\n");
+                    }
+                } else {
+                    enqueue(&tellers[tellerIndex], transaction);
+                    processTransaction(&tellers[tellerIndex], &completedTransactions[tellerIndex], &totalTimeElapsed);
+                }
                 break;
 
             case 2:
@@ -152,5 +173,3 @@ int main() {
 
     return 0;
 }
-
-//test update

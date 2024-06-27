@@ -3,6 +3,7 @@
 
 // Define a structure to hold transaction details
 typedef struct {
+    int stubNumber;
     int amount;
     int accountType;
     int duration;
