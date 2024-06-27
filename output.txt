@@ -4,14 +4,14 @@ Bank Teller Simulation Menu:
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:00:00 (HH:MM:SS)
-Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 1, amount 100, account type New, duration 8 minutes
+Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 1, amount 100, account type New, duration 10 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 00:08:00 (HH:MM:SS)
-Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 2, amount 150, account type New, duration 10 minutes
+Total time elapsed: 00:10:00 (HH:MM:SS)
+Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 2, amount 150, account type New, duration 8 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
@@ -25,152 +25,152 @@ Bank Teller Simulation Menu:
 2. Consolidate and display transactions
 3. Exit
 Total time elapsed: 00:28:00 (HH:MM:SS)
-Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 4, amount 250, account type New, duration 9 minutes
+Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 4, amount 250, account type New, duration 10 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 00:37:00 (HH:MM:SS)
+Total time elapsed: 00:38:00 (HH:MM:SS)
 Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 5, amount 300, account type Government, duration 12 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 00:49:00 (HH:MM:SS)
-Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 6, amount 350, account type Government, duration 13 minutes
+Total time elapsed: 00:50:00 (HH:MM:SS)
+Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 6, amount 350, account type Government, duration 11 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 01:02:00 (HH:MM:SS)
+Total time elapsed: 01:01:00 (HH:MM:SS)
 Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 7, amount 400, account type Government, duration 13 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 01:15:00 (HH:MM:SS)
-Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 8, amount 450, account type Government, duration 10 minutes
+Total time elapsed: 01:14:00 (HH:MM:SS)
+Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 8, amount 450, account type Government, duration 15 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 01:25:00 (HH:MM:SS)
-Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 9, amount 500, account type Government, duration 11 minutes
+Total time elapsed: 01:29:00 (HH:MM:SS)
+Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 9, amount 500, account type Government, duration 14 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 01:36:00 (HH:MM:SS)
+Total time elapsed: 01:43:00 (HH:MM:SS)
 Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 10, amount 550, account type Checking, duration 5 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 01:41:00 (HH:MM:SS)
-Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 11, amount 600, account type Checking, duration 5 minutes
+Total time elapsed: 01:48:00 (HH:MM:SS)
+Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 11, amount 600, account type Checking, duration 8 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 01:46:00 (HH:MM:SS)
+Total time elapsed: 01:56:00 (HH:MM:SS)
 Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 12, amount 650, account type Checking, duration 5 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 01:51:00 (HH:MM:SS)
+Total time elapsed: 02:01:00 (HH:MM:SS)
 Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 13, amount 700, account type Checking, duration 7 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 01:58:00 (HH:MM:SS)
-Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 14, amount 750, account type Checking, duration 7 minutes
+Total time elapsed: 02:08:00 (HH:MM:SS)
+Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 14, amount 750, account type Checking, duration 6 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 02:05:00 (HH:MM:SS)
+Total time elapsed: 02:14:00 (HH:MM:SS)
 Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 15, amount 800, account type Checking, duration 8 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 02:13:00 (HH:MM:SS)
+Total time elapsed: 02:22:00 (HH:MM:SS)
 Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 16, amount 850, account type Savings, duration 7 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 02:20:00 (HH:MM:SS)
+Total time elapsed: 02:29:00 (HH:MM:SS)
 Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 17, amount 900, account type Savings, duration 7 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 02:27:00 (HH:MM:SS)
-Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 18, amount 950, account type Savings, duration 6 minutes
+Total time elapsed: 02:36:00 (HH:MM:SS)
+Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 18, amount 950, account type Savings, duration 5 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 02:33:00 (HH:MM:SS)
-Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 19, amount 1000, account type Savings, duration 7 minutes
+Total time elapsed: 02:41:00 (HH:MM:SS)
+Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 19, amount 1000, account type Savings, duration 5 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 02:40:00 (HH:MM:SS)
+Total time elapsed: 02:46:00 (HH:MM:SS)
 Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 20, amount 1050, account type Savings, duration 7 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 02:47:00 (HH:MM:SS)
+Total time elapsed: 02:53:00 (HH:MM:SS)
 Enter your choice: Enter transaction amount: Select account type (0: New, 1: Government, 2: Checking, 3: Savings): Processed transaction stub 21, amount 1100, account type Savings, duration 5 minutes
 
 Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 02:52:00 (HH:MM:SS)
+Total time elapsed: 02:58:00 (HH:MM:SS)
 Enter your choice: Consolidated Transactions:
-Stub Number: 1, Amount: 100, Account Type: New, Duration: 8 minutes
-Stub Number: 2, Amount: 150, Account Type: New, Duration: 10 minutes
+Stub Number: 1, Amount: 100, Account Type: New, Duration: 10 minutes
+Stub Number: 2, Amount: 150, Account Type: New, Duration: 8 minutes
 Stub Number: 3, Amount: 200, Account Type: New, Duration: 10 minutes
-Stub Number: 4, Amount: 250, Account Type: New, Duration: 9 minutes
+Stub Number: 4, Amount: 250, Account Type: New, Duration: 10 minutes
 Stub Number: 5, Amount: 300, Account Type: Government, Duration: 12 minutes
-Stub Number: 6, Amount: 350, Account Type: Government, Duration: 13 minutes
+Stub Number: 6, Amount: 350, Account Type: Government, Duration: 11 minutes
 Stub Number: 7, Amount: 400, Account Type: Government, Duration: 13 minutes
-Stub Number: 8, Amount: 450, Account Type: Government, Duration: 10 minutes
-Stub Number: 9, Amount: 500, Account Type: Government, Duration: 11 minutes
+Stub Number: 8, Amount: 450, Account Type: Government, Duration: 15 minutes
+Stub Number: 9, Amount: 500, Account Type: Government, Duration: 14 minutes
 Stub Number: 10, Amount: 550, Account Type: Checking, Duration: 5 minutes
-Stub Number: 11, Amount: 600, Account Type: Checking, Duration: 5 minutes
+Stub Number: 11, Amount: 600, Account Type: Checking, Duration: 8 minutes
 Stub Number: 12, Amount: 650, Account Type: Checking, Duration: 5 minutes
 Stub Number: 13, Amount: 700, Account Type: Checking, Duration: 7 minutes
-Stub Number: 14, Amount: 750, Account Type: Checking, Duration: 7 minutes
+Stub Number: 14, Amount: 750, Account Type: Checking, Duration: 6 minutes
 Stub Number: 15, Amount: 800, Account Type: Checking, Duration: 8 minutes
 Stub Number: 16, Amount: 850, Account Type: Savings, Duration: 7 minutes
 Stub Number: 17, Amount: 900, Account Type: Savings, Duration: 7 minutes
-Stub Number: 18, Amount: 950, Account Type: Savings, Duration: 6 minutes
-Stub Number: 19, Amount: 1000, Account Type: Savings, Duration: 7 minutes
+Stub Number: 18, Amount: 950, Account Type: Savings, Duration: 5 minutes
+Stub Number: 19, Amount: 1000, Account Type: Savings, Duration: 5 minutes
 Stub Number: 20, Amount: 1050, Account Type: Savings, Duration: 7 minutes
 Stub Number: 21, Amount: 1100, Account Type: Savings, Duration: 5 minutes
 
@@ -178,5 +178,5 @@ Bank Teller Simulation Menu:
 1. Add customer to queue
 2. Consolidate and display transactions
 3. Exit
-Total time elapsed: 02:52:00 (HH:MM:SS)
+Total time elapsed: 02:58:00 (HH:MM:SS)
 Enter your choice: Exiting...

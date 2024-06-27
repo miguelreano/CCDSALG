@@ -4,6 +4,8 @@
 #include "queue.h"
 #include "stack.h"
 
+#define MAX_EXTRA_QUEUE_TRANSACTIONS 10
+
 // Generate a random duration for the transaction based on the account type
 int getRandomDuration(int accountType) {
     int min, max;
@@ -44,15 +46,37 @@ void convertTime(int totalTimeElapsed, int *hours, int *minutes, int *seconds) {
     *seconds = (*minutes * 60) % 60;
 }
 
-// Consolidate all transactions from tellers' stacks and sort them
-void consolidateTransactions(Stack stacks[], int numStacks) {
+// Activate the 5th queue if all regular queues (savings and checking) are full and pending queue is at least 50% capacity
+void OpenNewQueue(Queue *tellers, Queue *pendingQueue, int pendingQueueCondition) {
+    int allFull = 1;
+    // Check only checking and savings tellers (indices 2 and 3)
+    for (int i = 2; i <= 3; i++) {
+        if (!isQueueFull(&tellers[i], CHECKING) || !isQueueFull(&tellers[i], SAVINGS)) {
+            allFull = 0;
+            break;
+        }
+    }
+
+    if (allFull && pendingQueue->size >= (pendingQueueCondition / 2)) {
+        initQueue(&tellers[4]);
+        printf("Activated the 5th queue due to all regular queues being full and pending queue conditions met.\n");
+
+        while (!isQueueEmpty(pendingQueue) && tellers[4].size < MAX_EXTRA_QUEUE_TRANSACTIONS) {
+            Transaction transaction = dequeue(pendingQueue);
+            enqueue(&tellers[4], transaction);
+        }
+    }
+}
+
+// Consolidate and sort all transactions completed by tellers in ascending order
+void ConsolidateTransactions(Stack *completedTransactions, int numStacks) {
     Stack allTransactions;
     initStack(&allTransactions);
 
     // Collect all transactions from each stack into a single stack
     for (int i = 0; i < numStacks; i++) {
-        while (!isStackEmpty(&stacks[i])) {
-            push(&allTransactions, pop(&stacks[i]));
+        while (!isStackEmpty(&completedTransactions[i])) {
+            push(&allTransactions, pop(&completedTransactions[i]));
         }
     }
 
@@ -93,14 +117,16 @@ void displayMenu(int totalTimeElapsed) {
 int main() {
     srand(time(NULL)); // Initialize random seed
 
-    Queue tellers[NUM_TELLERS]; // Array of queues for each teller
+    Queue tellers[NUM_TELLERS + 1]; // Array of queues for each teller including the 5th queue
     Stack completedTransactions[NUM_TELLERS]; // Array of stacks for completed transactions
     Queue pendingQueue; // Pending queue for overflow customers
 
     // Initialize queues and stacks
-    for (int i = 0; i < NUM_TELLERS; i++) {
+    for (int i = 0; i < NUM_TELLERS + 1; i++) {
         initQueue(&tellers[i]);
-        initStack(&completedTransactions[i]);
+        if (i < NUM_TELLERS) {
+            initStack(&completedTransactions[i]);
+        }
     }
     initQueue(&pendingQueue);
 
@@ -143,8 +169,12 @@ int main() {
                     // Check if pending queue is full
                     if (isQueueFull(&pendingQueue, NEW) && isQueueFull(&pendingQueue, GOVERNMENT) &&
                         isQueueFull(&pendingQueue, CHECKING) && isQueueFull(&pendingQueue, SAVINGS)) {
-                        printf("All queues are full. Cannot enqueue transaction.\n");
-                        continue;
+                        OpenNewQueue(tellers, &pendingQueue, MAX_PENDING_QUEUE);
+                        if (tellers[4].size < MAX_EXTRA_QUEUE_TRANSACTIONS) {
+                            enqueue(&tellers[4], transaction);
+                        } else {
+                            printf("Extra queue is full. Cannot enqueue transaction.\n");
+                        }
                     } else {
                         enqueue(&pendingQueue, transaction);
                         printf("Transaction enqueued to pending queue.\n");
@@ -157,7 +187,7 @@ int main() {
 
             case 2:
                 // Consolidate and display all completed transactions
-                consolidateTransactions(completedTransactions, NUM_TELLERS);
+                ConsolidateTransactions(completedTransactions, NUM_TELLERS);
                 break;
 
             case 3:
