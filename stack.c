@@ -21,7 +21,7 @@ void push(Stack *s, Transaction transaction) {
     if (!isStackFull(s)) {
         s->transactions[++s->top] = transaction;
     } else {
-        printf("Stack is full. Cannot push transaction %d\n", transaction.amount);
+        printf("|-[ ! ]- [ Stack is full. Cannot push transaction %d\n", transaction.amount);
     }
 }
 

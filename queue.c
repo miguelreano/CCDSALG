@@ -38,7 +38,7 @@ void enqueue(Queue *q, Transaction transaction) {
         q->transactions[q->rear] = transaction; // Add transaction at the rear index
         q->size++; // Increment size of the queue
     } else {
-        printf("Queue is full. Cannot enqueue transaction %d\n", transaction.amount); // Print error if queue is full
+        printf("|-[ ! ]- [ Queue is full. Cannot enqueue transaction %d\n", transaction.amount); // Print error if queue is full
     }
 }
 
@@ -55,14 +55,14 @@ Transaction dequeue(Queue *q) {
 
 // Print the contents of the queue
 void printQueueContents(Queue *q, const char *queueName) {
-    printf("Contents of %s queue:\n", queueName);
+    printf("|-[ ! ]-[ %s Queue:\n", queueName);
     if (isQueueEmpty(q)) {
-        printf("Queue is empty.\n");
+        printf("|-[ ! ]-[ Queue is empty.\n");
     } else {
         int i = q->front;
         for (int count = 0; count < q->size; count++) {
             Transaction trans = q->transactions[i];
-            printf("Stub: %d, Amount: %d, Account Type: %s, Duration: %d\n",
+            printf("|-[ ! ]-[ Stub %d, Amount: %d, %s Account, Duration: %d Minutes\n",
                    trans.stubNumber, trans.amount, accountTypeStr[trans.accountType], trans.duration);
             i = (i + 1) % MAX_QUEUE_SIZE;
         }

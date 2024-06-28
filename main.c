@@ -91,7 +91,7 @@ void ConsolidateTransactions(Stack *completedTransactions, int numTellers) {
         while (!isStackEmpty(&completedTransactions[i])) {
             push(&consolidatedStack, pop(&completedTransactions[i]));
         }
-    }
+    }  
 
     printf("Consolidated transactions:\n");
     while (!isStackEmpty(&consolidatedStack)) {
@@ -124,20 +124,25 @@ int main() {
         int choice;
         int hours, minutes, seconds;
         convertTime(totalTimeElapsed, &hours, &minutes, &seconds);
-        printf("\nBank Teller Simulation Menu:\n");
-        printf("1. Add customer to queue\n");
-        printf("2. Consolidate and display transactions\n");
-        printf("3. Exit\n");
-        printf("Total time elapsed: %02d:%02d:%02d (HH:MM:SS)\n", hours, minutes, seconds);
-        printf("Enter your choice: ");
-        scanf("\n%d", &choice);
+        printf("|================================================[ BANK SIMULATOR ]================================================|");
+        printf("\n|-[ 1 ]-[ Add Customer to Queue");
+        printf("\n|-[ 2 ]-[ Consolidate and Display Transactions");
+        printf("\n|-[ 3 ]-[ Exit");
+        printf("\n|-[ ! ]-[ Time Elapsed: %02d:%02d:%02d", hours, minutes, seconds);
+        printf("\n|-[ ? ]-[ Enter your choice (1/2/3): ");
+        scanf("%d", &choice);
+        // printf("  |==================================================================================================================|");
 
         switch (choice) {
             case 1: {
                 Transaction transaction;
                 transaction.stubNumber = stubNumber++; // Automatically assign a stub number
-                printf("\nEnter transaction details (amount, account type): \n");
-                scanf("\n%d %d", &transaction.amount, &transaction.accountType);
+                printf("\n|==========================================[ Enter Transaction Details: ]==========================================|");
+                printf("\n|-[ ? ]-[ Amount: ");
+                scanf("%d", &transaction.amount);
+                printf("|-[ ! ]-[ New = 0 | Government = 1 | Checking = 2 | Savings = 3");
+                printf("\n|-[ ? ]-[ Account Type (0/1/2/3): ");
+                scanf("%d", &transaction.accountType);
                 transaction.duration = getRandomDuration(transaction.accountType);
 
                 int tellerIndex;
@@ -147,7 +152,7 @@ int main() {
                     // Distribute evenly among the available tellers
                     tellerIndex = 2 + (transaction.accountType == CHECKING ? 0 : 1);
                 } else {
-                    printf("Invalid account type. Transaction ignored.\n");
+                    printf("|-[ ! ]- [ Invalid account type. Transaction ignored.\n");
                     continue;
                 }
 
@@ -160,11 +165,11 @@ int main() {
                         if (tellers[4].size < MAX_EXTRA_QUEUE_TRANSACTIONS) {
                             enqueue(&tellers[4], transaction);
                         } else {
-                            printf("Extra queue is full. Cannot enqueue transaction.\n");
+                            printf("|-[ ! ]- [ Extra queue is full. Cannot enqueue transaction.\n");
                         }
                     } else {
                         enqueue(&pendingQueue, transaction);
-                        printf("Transaction enqueued to pending queue.\n");
+                        printf("|-[ ! ]- [ Transaction enqueued to pending queue.\n");
                     }
                 } else {
                     enqueue(&tellers[tellerIndex], transaction);
@@ -178,12 +183,12 @@ int main() {
                 break;
 
             case 3:
-                printf("Exiting...\n");
+                printf("|-[ ! ]-[ Exiting...\n");
                 exit(0);
 
             default:
                 // Handle invalid menu choice
-                printf("Invalid choice. Try again.\n");
+                printf("|-[ ! ]-[ Invalid choice. Try again.\n");
         }
 
         // Process transactions for each teller
@@ -192,22 +197,24 @@ int main() {
         }
 
         // Print current transactions for each teller
+        printf("\n|==================================================================================================================|\n");
         for (int i = 0; i < NUM_TELLERS; i++) {
             if (tellerStatus[i].isBusy) {
-                printf("Teller %d is processing transaction stub %d, amount %d, account type %s, remaining time %d minutes\n",
-                       i + 1, tellerStatus[i].currentTransaction.stubNumber, tellerStatus[i].currentTransaction.amount,
-                       accountTypeStr[tellerStatus[i].currentTransaction.accountType],
-                       tellerStatus[i].remainingTime);
+                printf("|-[ %d ]-[ Teller %d is processing transaction: Stub %d, Amount: %d, %s Account, %d Minutes Remaining...\n",
+                       i + 1, i + 1, tellerStatus[i].currentTransaction.stubNumber, tellerStatus[i].currentTransaction.amount,
+                       accountTypeStr[tellerStatus[i].currentTransaction.accountType], tellerStatus[i].remainingTime);
             } else {
-                printf("Teller %d is idle\n", i + 1);
+                printf("|-[ %d ]-[ Teller %d is idle\n", i + 1, i + 1);
             }
         }
 
         // Print contents of each teller queue
+        printf("|==================================================================================================================|\n");
         for (int i = 0; i < NUM_TELLERS; i++) {
             char queueName[20];
             snprintf(queueName, sizeof(queueName), "Teller %d", i + 1);
             printQueueContents(&tellers[i], queueName);
+            printf("|\n");
         }
         printQueueContents(&pendingQueue, "Pending");
     }
