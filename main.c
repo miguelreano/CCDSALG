@@ -130,14 +130,14 @@ int main() {
         printf("3. Exit\n");
         printf("Total time elapsed: %02d:%02d:%02d (HH:MM:SS)\n", hours, minutes, seconds);
         printf("Enter your choice: ");
-        scanf("%d", &choice);
+        scanf("\n%d", &choice);
 
         switch (choice) {
             case 1: {
                 Transaction transaction;
                 transaction.stubNumber = stubNumber++; // Automatically assign a stub number
-                printf("Enter transaction details (amount, account type): ");
-                scanf("%d %d", &transaction.amount, &transaction.accountType);
+                printf("\nEnter transaction details (amount, account type): \n");
+                scanf("\n%d %d", &transaction.amount, &transaction.accountType);
                 transaction.duration = getRandomDuration(transaction.accountType);
 
                 int tellerIndex;
