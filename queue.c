@@ -3,14 +3,26 @@
 
 const char *accountTypeStr[] = { "New", "Government", "Checking", "Savings" };
 
-// Initialize a queue
+/**
+ * Function name: initQueue
+ * Description: Initialize a queue.
+ * Parameters:
+ *** Queue *q: Pointer to the queue to be initialized.
+ */
 void initQueue(Queue *q) {
     q->front = 0;
     q->rear = -1; // Set rear to -1 to indicate the queue is initially empty
     q->size = 0;
 }
-
-// Check if a queue is full based on teller type
+/**
+ * Function name: isQueueFull
+ * Description: Check if a queue is full based on the teller type.
+ * Parameters:
+ *** Queue *q: Pointer to the queue.
+ *** int accountType: The type of account for the transaction.
+ * Return value:
+ *** int: Returns 1 if the queue is full, otherwise returns 0.
+ */
 int isQueueFull(Queue *q, int accountType) {
     switch (accountType) {
         case NEW:
@@ -26,12 +38,25 @@ int isQueueFull(Queue *q, int accountType) {
     }
 }
 
-// Check if a queue is empty
+/**
+ * Function name: isQueueEmpty
+ * Description: Check if a queue is empty.
+ * Parameters:
+ *** Queue *q: Pointer to the queue.
+ * Return value:
+ *** int: Returns 1 if the queue is empty, otherwise returns 0.
+ */
 int isQueueEmpty(Queue *q) {
     return q->size == 0;
 }
 
-// Add a transaction to the queue
+/**
+ * Function name: enqueue
+ * Description: Add a transaction to the queue.
+ * Parameters:
+ *** Queue *q: Pointer to the queue.
+ *** Transaction transaction: The transaction to be added.
+ */
 void enqueue(Queue *q, Transaction transaction) {
     if (!isQueueFull(q, transaction.accountType)) {
         q->rear = (q->rear + 1) % MAX_QUEUE_SIZE; // Update rear index, wrap around using modulus
@@ -42,7 +67,14 @@ void enqueue(Queue *q, Transaction transaction) {
     }
 }
 
-// Remove a transaction from the queue
+/**
+ * Function name: dequeue
+ * Description: Remove a transaction from the queue.
+ * Parameters:
+ *** Queue *q: Pointer to the queue.
+ * Return value:
+ *** Transaction: The dequeued transaction. Returns a default invalid transaction if the queue is empty.
+ */
 Transaction dequeue(Queue *q) {
     Transaction transaction = { -1, -1, -1 }; // Default invalid transaction
     if (!isQueueEmpty(q)) {
@@ -53,7 +85,13 @@ Transaction dequeue(Queue *q) {
     return transaction; // Return the dequeued transaction
 }
 
-// Print the contents of the queue
+/**
+ * Function name: printQueueContents
+ * Description: Print the contents of the queue.
+ * Parameters:
+ *** Queue *q: Pointer to the queue.
+ *** const char *queueName: Name of the queue to be printed.
+ */
 void printQueueContents(Queue *q, const char *queueName) {
     printf("|-[ ! ]-[ %s Queue:\n", queueName);
     if (isQueueEmpty(q)) {

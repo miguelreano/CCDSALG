@@ -7,14 +7,20 @@
 #define MAX_EXTRA_QUEUE_TRANSACTIONS 10
 #define NUM_TELLERS 5
 
-// Structure to track the current transaction being processed by each teller
 typedef struct {
     Transaction currentTransaction;
     int isBusy;
     int remainingTime;
 } TellerStatus;
 
-// Generate a random duration for the transaction based on the account type
+/**
+ * Function name: getRandomDuration
+ * Description: Generate a random duration for the transaction based on the account type.
+ * Parameters:
+ *** int accountType: The type of account for the transaction.
+ * Return value:
+ *** int: The random duration for the transaction.
+ */
 int getRandomDuration(int accountType) {
     int min, max;
     switch (accountType) {
@@ -35,8 +41,15 @@ int getRandomDuration(int accountType) {
     }
     return min + rand() % (max - min + 1);
 }
-
-// Process a single transaction for a given teller
+/**
+ * Function name: processTransaction
+ * Description: Process a single transaction for a given teller.
+ * Parameters:
+ *** Queue *q: Pointer to the queue of transactions.
+ *** Stack *s: Pointer to the stack of completed transactions.
+ *** TellerStatus *tellerStatus: Pointer to the teller's status.
+ *** int *totalTimeElapsed: Pointer to the total time elapsed.
+ */
 void processTransaction(Queue *q, Stack *s, TellerStatus *tellerStatus, int *totalTimeElapsed) {
     if (!tellerStatus->isBusy && !isQueueEmpty(q)) {
         tellerStatus->currentTransaction = dequeue(q);
@@ -58,17 +71,32 @@ void processTransaction(Queue *q, Stack *s, TellerStatus *tellerStatus, int *tot
     }
 }
 
-// Convert total minutes into hours, minutes, and seconds format
+/**
+ * Function name: convertTime
+ * Description: Convert total minutes into hours, minutes, and seconds format.
+ * Parameters:
+ *** int totalTimeElapsed: The total time elapsed in minutes.
+ *** int *hours: Pointer to the hours component.
+ *** int *minutes: Pointer to the minutes component.
+ *** int *seconds: Pointer to the seconds component.
+ */
 void convertTime(int totalTimeElapsed, int *hours, int *minutes, int *seconds) {
     *hours = totalTimeElapsed / 60;
     *minutes = totalTimeElapsed % 60;
     *seconds = 0; // No need to compute seconds from minutes
 }
 
-// Activate the 5th queue if all regular queues (savings and checking) are full and pending queue is at least 50% capacity
+/**
+ * Function name: OpenNewQueue
+ * Description: Activate the 5th queue if all regular queues (savings and checking) 
+ *              are full and pending queue is at least 50% capacity.
+ * Parameters:
+ *** Queue *tellers: Array of teller queues.
+ *** Queue *pendingQueue: Pointer to the pending queue.
+ *** int pendingQueueCondition: The condition for the pending queue to trigger opening a new queue.
+ */
 void OpenNewQueue(Queue *tellers, Queue *pendingQueue, int pendingQueueCondition) {
     int allFull = 1;
-    // Check only checking and savings tellers (indices 2 and 3)
     for (int i = 2; i <= 3; i++) {
         if (!isQueueFull(&tellers[i], CHECKING) || !isQueueFull(&tellers[i], SAVINGS)) {
             allFull = 0;
@@ -82,7 +110,14 @@ void OpenNewQueue(Queue *tellers, Queue *pendingQueue, int pendingQueueCondition
     }
 }
 
-// Consolidate transactions from all stacks into a single stack and display them
+
+/**
+ * Function name: ConsolidateTransactions
+ * Description: Consolidate transactions from all stacks into a single stack and display them.
+ * Parameters:
+ *** Stack *completedTransactions: Array of completed transaction stacks for each teller.
+ *** int numTellers: The number of tellers.
+ */
 void ConsolidateTransactions(Stack *completedTransactions, int numTellers) {
     Stack consolidatedStack;
     initStack(&consolidatedStack);

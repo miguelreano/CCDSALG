@@ -24,10 +24,10 @@ extern const char *accountTypeStr[];
 
 // Define a Queue data structure
 typedef struct {
-    Transaction transactions[MAX_QUEUE_SIZE]; // Array to hold transactions
-    int front; // Index of the front of the queue
-    int rear;  // Index of the rear of the queue
-    int size;  // Current size of the queue
+    Transaction transactions[MAX_QUEUE_SIZE]; 
+    int front; 
+    int rear;  
+    int size;  
 } Queue;
 
 // Function declarations
