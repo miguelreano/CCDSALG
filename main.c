@@ -7,6 +7,13 @@
 #define MAX_EXTRA_QUEUE_TRANSACTIONS 10
 #define NUM_TELLERS 5
 
+// Structure to track the current transaction being processed by each teller
+typedef struct {
+    Transaction currentTransaction;
+    int isBusy;
+    int remainingTime;
+} TellerStatus;
+
 // Generate a random duration for the transaction based on the account type
 int getRandomDuration(int accountType) {
     int min, max;
@@ -29,14 +36,25 @@ int getRandomDuration(int accountType) {
     return min + rand() % (max - min + 1);
 }
 
-// Process a transaction and update the total time elapsed
-void processTransaction(Queue *q, Stack *s, int *totalTimeElapsed) {
-    while (!isQueueEmpty(q)) {
-        Transaction trans = dequeue(q);
-        push(s, trans);
-        *totalTimeElapsed += trans.duration;
-        printf("Processed transaction stub %d, amount %d, account type %s, duration %d minutes\n",
-               trans.stubNumber, trans.amount, accountTypeStr[trans.accountType], trans.duration);
+// Process a single transaction for a given teller
+void processTransaction(Queue *q, Stack *s, TellerStatus *tellerStatus, int *totalTimeElapsed) {
+    if (!tellerStatus->isBusy && !isQueueEmpty(q)) {
+        tellerStatus->currentTransaction = dequeue(q);
+        tellerStatus->remainingTime = tellerStatus->currentTransaction.duration;
+        tellerStatus->isBusy = 1;
+    }
+
+    if (tellerStatus->isBusy) {
+        tellerStatus->remainingTime--;
+        *totalTimeElapsed += 1;
+        if (tellerStatus->remainingTime == 0) {
+            push(s, tellerStatus->currentTransaction);
+            printf("Completed transaction stub %d, amount %d, account type %s, duration %d minutes\n",
+                   tellerStatus->currentTransaction.stubNumber, tellerStatus->currentTransaction.amount,
+                   accountTypeStr[tellerStatus->currentTransaction.accountType],
+                   tellerStatus->currentTransaction.duration);
+            tellerStatus->isBusy = 0;
+        }
     }
 }
 
@@ -88,6 +106,7 @@ int main() {
 
     Queue tellers[NUM_TELLERS];
     Stack completedTransactions[NUM_TELLERS];
+    TellerStatus tellerStatus[NUM_TELLERS] = {0};
     Queue pendingQueue;
 
     // Initialize all queues and stacks
@@ -159,14 +178,29 @@ int main() {
                 break;
 
             case 3:
-                // Consolidate and display all completed transactions before exiting
-                ConsolidateTransactions(completedTransactions, NUM_TELLERS);
                 printf("Exiting...\n");
                 exit(0);
 
             default:
                 // Handle invalid menu choice
                 printf("Invalid choice. Try again.\n");
+        }
+
+        // Process transactions for each teller
+        for (int i = 0; i < NUM_TELLERS; i++) {
+            processTransaction(&tellers[i], &completedTransactions[i], &tellerStatus[i], &totalTimeElapsed);
+        }
+
+        // Print current transactions for each teller
+        for (int i = 0; i < NUM_TELLERS; i++) {
+            if (tellerStatus[i].isBusy) {
+                printf("Teller %d is processing transaction stub %d, amount %d, account type %s, remaining time %d minutes\n",
+                       i + 1, tellerStatus[i].currentTransaction.stubNumber, tellerStatus[i].currentTransaction.amount,
+                       accountTypeStr[tellerStatus[i].currentTransaction.accountType],
+                       tellerStatus[i].remainingTime);
+            } else {
+                printf("Teller %d is idle\n", i + 1);
+            }
         }
 
         // Print contents of each teller queue
