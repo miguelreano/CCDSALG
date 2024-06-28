@@ -66,7 +66,7 @@ void processTransaction(Queue *q, Stack *s, TellerStatus *tellerStatus, int *tot
         tellerTimes[tellerIndex]++; // Accumulate the time for this teller
         if (tellerStatus->remainingTime == 0) {
             push(s, tellerStatus->currentTransaction);
-            printf("Completed transaction stub %d, amount %d, account type %s, duration %d minutes\n",
+            printf("\n|-[ ! ]-[ Completed Transaction: Stub %d, Amount: %d, %s Account, Duration: %d minutes\n",
                    tellerStatus->currentTransaction.stubNumber, tellerStatus->currentTransaction.amount,
                    accountTypeStr[tellerStatus->currentTransaction.accountType],
                    tellerStatus->currentTransaction.duration);
@@ -156,18 +156,17 @@ void ConsolidateTransactions(Stack *completedTransactions, int numTellers, int *
     }
 
     // Display sorted transactions
-    printf("Consolidated transactions:\n");
+    printf("\n|==========================================[ Consolidated Transactions: ]==========================================|\n");
     while (!isStackEmpty(&consolidatedStack)) {
         Transaction trans = pop(&consolidatedStack);
-        printf("Transaction stub %d, amount %d, account type %s, duration %d minutes\n",
+        printf("|-[ ! ]-[ Transaction stub %d, amount %d, account type %s, duration %d minutes\n",
                trans.stubNumber, trans.amount, accountTypeStr[trans.accountType], trans.duration);
     }
 
     // Display total number of transactions and average time for each teller
-    printf("Total number of transactions completed by each teller:\n");
+    printf("\n|===========================================[ Summary of Transactions ]============================================|\n");
     for (int i = 0; i < numTellers; i++) {
-        
-        printf("Teller %d: Total Transactions %d, Average Time %d minutes\n",
+        printf("|-[ ! ]-[ Teller %d | Total Transactions: %d, Average Time: %d minutes\n",
                i + 1, totalTransactions[i],
                totalTransactions[i] > 0 ? tellerTimes[i] / totalTransactions[i] : 0);
     }
@@ -222,7 +221,7 @@ int main() {
                 scanf("%d", &transaction.accountType);
                 transaction.duration = getRandomDuration(transaction.accountType);
 
-                int tellerIndex;
+                int tellerIndex = -1;
                 if (transaction.accountType == NEW || transaction.accountType == GOVERNMENT) {
                     tellerIndex = transaction.accountType; // New and Government accounts have dedicated queues
                 } else if (transaction.accountType == CHECKING || transaction.accountType == SAVINGS) {
@@ -230,26 +229,27 @@ int main() {
                     tellerIndex = 2 + (transaction.accountType == CHECKING ? 0 : 1);
                 } else {
                     printf("|-[ ! ]- [ Invalid account type. Transaction ignored.\n");
-                    continue;
                 }
 
-                // Check if teller queue is full
-                if (isQueueFull(&tellers[tellerIndex], transaction.accountType)) {
-                    // Check if pending queue is full
-                    if (isQueueFull(&pendingQueue, NEW) && isQueueFull(&pendingQueue, GOVERNMENT) &&
-                        isQueueFull(&pendingQueue, CHECKING) && isQueueFull(&pendingQueue, SAVINGS)) {
-                        OpenNewQueue(tellers, &pendingQueue, MAX_EXTRA_QUEUE_TRANSACTIONS);
-                        if (tellers[4].size < MAX_EXTRA_QUEUE_TRANSACTIONS) {
-                            enqueue(&tellers[4], transaction);
+                if (tellerIndex != -1) { // Proceed only if a valid account type was provided
+                    // Check if teller queue is full
+                    if (isQueueFull(&tellers[tellerIndex], transaction.accountType)) {
+                        // Check if pending queue is full
+                        if (isQueueFull(&pendingQueue, NEW) && isQueueFull(&pendingQueue, GOVERNMENT) &&
+                            isQueueFull(&pendingQueue, CHECKING) && isQueueFull(&pendingQueue, SAVINGS)) {
+                            OpenNewQueue(tellers, &pendingQueue, MAX_EXTRA_QUEUE_TRANSACTIONS);
+                            if (tellers[4].size < MAX_EXTRA_QUEUE_TRANSACTIONS) {
+                                enqueue(&tellers[4], transaction);
+                            } else {
+                                printf("|-[ ! ]- [ Extra queue is full. Cannot enqueue transaction.\n");
+                            }
                         } else {
-                            printf("|-[ ! ]- [ Extra queue is full. Cannot enqueue transaction.\n");
+                            enqueue(&pendingQueue, transaction);
+                            printf("|-[ ! ]- [ Transaction enqueued to pending queue.\n");
                         }
                     } else {
-                        enqueue(&pendingQueue, transaction);
-                        printf("|-[ ! ]- [ Transaction enqueued to pending queue.\n");
+                        enqueue(&tellers[tellerIndex], transaction);
                     }
-                } else {
-                    enqueue(&tellers[tellerIndex], transaction);
                 }
                 break;
             }
@@ -261,7 +261,7 @@ int main() {
 
             case 3:
                 printf("|-[ ! ]-[ Exiting...\n");
-                exit(0);
+                return 0;
 
             default:
                 // Handle invalid menu choice
