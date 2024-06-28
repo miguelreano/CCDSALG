@@ -43,6 +43,7 @@ int getRandomDuration(int accountType) {
     }
     return min + rand() % (max - min + 1);
 }
+
 /**
  * Function name: processTransaction
  * Description: Process a single transaction for a given teller.
@@ -51,8 +52,9 @@ int getRandomDuration(int accountType) {
  *** Stack *s: Pointer to the stack of completed transactions.
  *** TellerStatus *tellerStatus: Pointer to the teller's status.
  *** int *totalTimeElapsed: Pointer to the total time elapsed.
+ *** int *tellerTimes: Array to accumulate transaction times for each teller.
  */
-void processTransaction(Queue *q, Stack *s, TellerStatus *tellerStatus, int *totalTimeElapsed) {
+void processTransaction(Queue *q, Stack *s, TellerStatus *tellerStatus, int *totalTimeElapsed, int *tellerTimes) {
     if (!tellerStatus->isBusy && !isQueueEmpty(q)) {
         tellerStatus->currentTransaction = dequeue(q);
         tellerStatus->remainingTime = tellerStatus->currentTransaction.duration;
@@ -61,7 +63,7 @@ void processTransaction(Queue *q, Stack *s, TellerStatus *tellerStatus, int *tot
 
     if (tellerStatus->isBusy) {
         tellerStatus->remainingTime--;
-        *totalTimeElapsed += 1;
+        tellerTimes[q - (Queue*)tellerStatus]++; // Accumulate the time for this teller
         if (tellerStatus->remainingTime == 0) {
             push(s, tellerStatus->currentTransaction);
             printf("Completed transaction stub %d, amount %d, account type %s, duration %d minutes\n",
@@ -118,15 +120,16 @@ void OpenNewQueue(Queue *tellers, Queue *pendingQueue, int pendingQueueCondition
  * Parameters:
  *** Stack *completedTransactions: Array of completed transaction stacks for each teller.
  *** int numTellers: The number of tellers.
+ *** int *tellerTimes: Array to store accumulated transaction times for each teller.
+ *** int *totalTransactions: Array to store total transactions for each teller.
  */
-void ConsolidateTransactions(Stack *completedTransactions, int numTellers) {
+void ConsolidateTransactions(Stack *completedTransactions, int numTellers, int *tellerTimes, int *totalTransactions) {
     Stack consolidatedStack;
     initStack(&consolidatedStack);
 
     // Temporary array to store transactions
     Transaction *transactions = (Transaction *)malloc(MAX_TRANSACTIONS * sizeof(Transaction));
     int count = 0;
-    int totalTransactions[NUM_TELLERS] = {0}; // Array to store total transactions for each teller
 
     for (int i = 0; i < numTellers; i++) {
         while (!isStackEmpty(&completedTransactions[i])) {
@@ -160,10 +163,13 @@ void ConsolidateTransactions(Stack *completedTransactions, int numTellers) {
                trans.stubNumber, trans.amount, accountTypeStr[trans.accountType], trans.duration);
     }
 
-    // Display total number of transactions for each teller
+    // Display total number of transactions and average time for each teller
     printf("Total number of transactions completed by each teller:\n");
     for (int i = 0; i < numTellers; i++) {
-        printf("Teller %d: Total Transactions %d\n", i + 1, totalTransactions[i]);
+        
+        printf("Teller %d: Total Transactions %d, Average Time %d minutes\n",
+               i + 1, totalTransactions[i],
+               totalTransactions[i] > 0 ? tellerTimes[i] / totalTransactions[i] : 0);
     }
 
     free(transactions);
@@ -176,6 +182,9 @@ int main() {
     Stack completedTransactions[NUM_TELLERS];
     TellerStatus tellerStatus[NUM_TELLERS] = {0};
     Queue pendingQueue;
+
+    int tellerTimes[NUM_TELLERS] = {0}; // Array to store accumulated transaction times
+    int totalTransactions[NUM_TELLERS] = {0}; // Array to store total transactions for each teller
 
     // Initialize all queues and stacks
     for (int i = 0; i < NUM_TELLERS; i++) {
@@ -247,7 +256,7 @@ int main() {
 
             case 2:
                 // Consolidate and display all completed transactions without processing pending and queued transactions
-                ConsolidateTransactions(completedTransactions, NUM_TELLERS);
+                ConsolidateTransactions(completedTransactions, NUM_TELLERS, tellerTimes, totalTransactions);
                 break;
 
             case 3:
@@ -261,7 +270,7 @@ int main() {
 
         // Process transactions for each teller
         for (int i = 0; i < NUM_TELLERS; i++) {
-            processTransaction(&tellers[i], &completedTransactions[i], &tellerStatus[i], &totalTimeElapsed);
+            processTransaction(&tellers[i], &completedTransactions[i], &tellerStatus[i], &totalTimeElapsed, tellerTimes);
         }
 
         // Print current transactions for each teller
@@ -285,6 +294,7 @@ int main() {
             printf("|\n");
         }
         printQueueContents(&pendingQueue, "Pending");
+        totalTimeElapsed += 1;
     }
 
     return 0;
