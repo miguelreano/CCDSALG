@@ -54,7 +54,7 @@ int getRandomDuration(int accountType) {
  *** int *totalTimeElapsed: Pointer to the total time elapsed.
  *** int *tellerTimes: Array to accumulate transaction times for each teller.
  */
-void processTransaction(Queue *q, Stack *s, TellerStatus *tellerStatus, int *totalTimeElapsed, int *tellerTimes) {
+void processTransaction(Queue *q, Stack *s, TellerStatus *tellerStatus, int *totalTimeElapsed, int tellerIndex, int *tellerTimes) {
     if (!tellerStatus->isBusy && !isQueueEmpty(q)) {
         tellerStatus->currentTransaction = dequeue(q);
         tellerStatus->remainingTime = tellerStatus->currentTransaction.duration;
@@ -63,7 +63,7 @@ void processTransaction(Queue *q, Stack *s, TellerStatus *tellerStatus, int *tot
 
     if (tellerStatus->isBusy) {
         tellerStatus->remainingTime--;
-        tellerTimes[q - (Queue*)tellerStatus]++; // Accumulate the time for this teller
+        tellerTimes[tellerIndex]++; // Accumulate the time for this teller
         if (tellerStatus->remainingTime == 0) {
             push(s, tellerStatus->currentTransaction);
             printf("Completed transaction stub %d, amount %d, account type %s, duration %d minutes\n",
@@ -238,7 +238,7 @@ int main() {
                     // Check if pending queue is full
                     if (isQueueFull(&pendingQueue, NEW) && isQueueFull(&pendingQueue, GOVERNMENT) &&
                         isQueueFull(&pendingQueue, CHECKING) && isQueueFull(&pendingQueue, SAVINGS)) {
-                        OpenNewQueue(tellers, &pendingQueue, MAX_PENDING_QUEUE);
+                        OpenNewQueue(tellers, &pendingQueue, MAX_EXTRA_QUEUE_TRANSACTIONS);
                         if (tellers[4].size < MAX_EXTRA_QUEUE_TRANSACTIONS) {
                             enqueue(&tellers[4], transaction);
                         } else {
@@ -270,7 +270,7 @@ int main() {
 
         // Process transactions for each teller
         for (int i = 0; i < NUM_TELLERS; i++) {
-            processTransaction(&tellers[i], &completedTransactions[i], &tellerStatus[i], &totalTimeElapsed, tellerTimes);
+            processTransaction(&tellers[i], &completedTransactions[i], &tellerStatus[i], &totalTimeElapsed, i, tellerTimes);
         }
 
         // Print current transactions for each teller
