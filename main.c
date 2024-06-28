@@ -3,9 +3,11 @@
 #include <time.h>
 #include "queue.h"
 #include "stack.h"
+#include "transaction.h"
 
 #define MAX_EXTRA_QUEUE_TRANSACTIONS 10
 #define NUM_TELLERS 5
+#define MAX_TRANSACTIONS 60
 
 typedef struct {
     Transaction currentTransaction;
@@ -110,7 +112,6 @@ void OpenNewQueue(Queue *tellers, Queue *pendingQueue, int pendingQueueCondition
     }
 }
 
-
 /**
  * Function name: ConsolidateTransactions
  * Description: Consolidate transactions from all stacks into a single stack and display them.
@@ -122,18 +123,50 @@ void ConsolidateTransactions(Stack *completedTransactions, int numTellers) {
     Stack consolidatedStack;
     initStack(&consolidatedStack);
 
+    // Temporary array to store transactions
+    Transaction *transactions = (Transaction *)malloc(MAX_TRANSACTIONS * sizeof(Transaction));
+    int count = 0;
+    int totalTransactions[NUM_TELLERS] = {0}; // Array to store total transactions for each teller
+
     for (int i = 0; i < numTellers; i++) {
         while (!isStackEmpty(&completedTransactions[i])) {
-            push(&consolidatedStack, pop(&completedTransactions[i]));
+            Transaction transaction = pop(&completedTransactions[i]);
+            transactions[count++] = transaction;
+            totalTransactions[i]++; // Increment the transaction count for each teller
         }
-    }  
+    }
 
+    // Sort transactions by stub number
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = i + 1; j < count; j++) {
+            if (transactions[i].stubNumber < transactions[j].stubNumber) {
+                Transaction temp = transactions[i];
+                transactions[i] = transactions[j];
+                transactions[j] = temp;
+            }
+        }
+    }
+
+    // Push sorted transactions back into the stack
+    for (int i = 0; i < count; i++) {
+        push(&consolidatedStack, transactions[i]);
+    }
+
+    // Display sorted transactions
     printf("Consolidated transactions:\n");
     while (!isStackEmpty(&consolidatedStack)) {
         Transaction trans = pop(&consolidatedStack);
         printf("Transaction stub %d, amount %d, account type %s, duration %d minutes\n",
                trans.stubNumber, trans.amount, accountTypeStr[trans.accountType], trans.duration);
     }
+
+    // Display total number of transactions for each teller
+    printf("Total number of transactions completed by each teller:\n");
+    for (int i = 0; i < numTellers; i++) {
+        printf("Teller %d: Total Transactions %d\n", i + 1, totalTransactions[i]);
+    }
+
+    free(transactions);
 }
 
 int main() {
