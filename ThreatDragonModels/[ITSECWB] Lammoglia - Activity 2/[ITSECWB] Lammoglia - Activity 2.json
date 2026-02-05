@@ -38,6 +38,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -121,7 +122,6 @@
               ]
             },
             "id": "70bfee0f-7030-48f0-aa5c-be7131b5a801",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "Browse Client",
@@ -371,6 +371,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -454,7 +455,6 @@
               ]
             },
             "id": "aa86d3b1-07ad-4e06-9210-60573eccda1a",
-            "zIndex": 11,
             "data": {
               "type": "tm.Process",
               "name": "Website Application",
@@ -494,6 +494,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 12,
             "ports": {
               "groups": {
                 "top": {
@@ -577,7 +578,6 @@
               ]
             },
             "id": "626845d4-7662-487b-a123-46db2c9031a6",
-            "zIndex": 12,
             "data": {
               "type": "tm.Store",
               "name": "SQL Database",
@@ -632,8 +632,8 @@
             ],
             "id": "b81325f5-7504-4598-a07a-804c19379592",
             "source": {
-              "x": 790,
-              "y": 180
+              "cell": "aa86d3b1-07ad-4e06-9210-60573eccda1a",
+              "port": "25f5ef8e-863a-4b9e-9ddd-a11f788a82ae"
             },
             "target": {
               "cell": "626845d4-7662-487b-a123-46db2c9031a6",
@@ -641,10 +641,56 @@
             },
             "vertices": [
               {
-                "x": 750,
-                "y": 400
+                "x": 890,
+                "y": 250
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 14,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Success 1",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Success 1"
+            ],
+            "id": "2bf0ec3f-8aed-4230-9ba9-b9d9ed12a2f7",
+            "source": {
+              "x": 1000,
+              "y": 180
+            },
+            "target": {
+              "cell": "aa86d3b1-07ad-4e06-9210-60573eccda1a",
+              "port": "25f5ef8e-863a-4b9e-9ddd-a11f788a82ae"
+            }
           }
         ]
       }
