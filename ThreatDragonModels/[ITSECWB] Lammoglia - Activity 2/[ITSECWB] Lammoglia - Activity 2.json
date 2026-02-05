@@ -507,6 +507,40 @@
             ]
           },
           {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Generic Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Generic Trust Boundary"
+            ],
+            "id": "cd2df09a-6b2c-44b3-a3a9-db2e3670c0a1",
+            "source": {
+              "x": 900,
+              "y": 10
+            },
+            "target": {
+              "x": 920,
+              "y": 530
+            },
+            "vertices": [
+              {
+                "x": 860,
+                "y": 270
+              }
+            ]
+          },
+          {
             "position": {
               "x": 540,
               "y": 375
@@ -770,7 +804,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Insert Query with Feedback Comments",
+              "name": "Insert Query with \nFeedback Comments",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -784,7 +818,7 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Insert Query with Feedback Comments"
+              "Insert Query with \nFeedback Comments"
             ],
             "id": "b81325f5-7504-4598-a07a-804c19379592",
             "source": {
@@ -1181,6 +1215,40 @@
               {
                 "x": 430,
                 "y": 270
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 19,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Generic Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Generic Trust Boundary"
+            ],
+            "id": "d3ff69dc-9a15-49ce-bc51-268263f9d08a",
+            "source": {
+              "x": 410,
+              "y": 160
+            },
+            "target": {
+              "x": 790,
+              "y": 160
+            },
+            "vertices": [
+              {
+                "x": 590,
+                "y": 190
               }
             ]
           }
