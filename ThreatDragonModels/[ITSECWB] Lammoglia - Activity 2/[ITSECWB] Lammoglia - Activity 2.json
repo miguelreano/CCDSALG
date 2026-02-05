@@ -168,7 +168,7 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Feedback Comments are save"
+              "Feedback Comments are saved"
             ],
             "id": "f20008ce-c9db-4e07-88b5-fb117882930d",
             "source": {
@@ -388,13 +388,19 @@
             ],
             "id": "88e2d8ab-fade-4878-8721-ad7b787277c1",
             "source": {
-              "x": 310,
-              "y": 60
+              "cell": "c62c4c7f-6d99-4960-9ab2-28b1d7774842",
+              "port": "811e3452-3c47-4514-a94c-d7a877f61bae"
             },
             "target": {
-              "x": 410,
-              "y": 160
-            }
+              "cell": "aa86d3b1-07ad-4e06-9210-60573eccda1a",
+              "port": "c4b2b432-a50d-4bdc-8698-a8058903f7a2"
+            },
+            "vertices": [
+              {
+                "x": 550,
+                "y": 220
+              }
+            ]
           },
           {
             "position": {
@@ -688,7 +694,7 @@
             "vertices": [
               {
                 "x": 820,
-                "y": 410
+                "y": 390
               }
             ]
           },
@@ -740,7 +746,7 @@
             "vertices": [
               {
                 "x": 820,
-                "y": 290
+                "y": 300
               }
             ]
           },
@@ -765,6 +771,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 15,
             "ports": {
               "groups": {
                 "top": {
@@ -848,7 +855,6 @@
               ]
             },
             "id": "c62c4c7f-6d99-4960-9ab2-28b1d7774842",
-            "zIndex": 15,
             "data": {
               "type": "tm.Process",
               "name": "Authorization \nProvider",
@@ -888,6 +894,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 16,
             "ports": {
               "groups": {
                 "top": {
@@ -971,7 +978,6 @@
               ]
             },
             "id": "bfbe94f5-9aad-4e3c-baed-850ae8be12a7",
-            "zIndex": 16,
             "data": {
               "type": "tm.Store",
               "name": "LDAP",
@@ -1026,20 +1032,16 @@
             ],
             "id": "9cbf64be-d2e5-4a77-ac23-4ca5d99c516c",
             "source": {
-              "x": 496,
-              "y": 167
-            },
-            "target": {
               "cell": "aa86d3b1-07ad-4e06-9210-60573eccda1a",
               "port": "c4b2b432-a50d-4bdc-8698-a8058903f7a2"
             },
+            "target": {
+              "cell": "c62c4c7f-6d99-4960-9ab2-28b1d7774842",
+              "port": "811e3452-3c47-4514-a94c-d7a877f61bae"
+            },
             "vertices": [
               {
-                "x": 550,
-                "y": 220
-              },
-              {
-                "x": 530,
+                "x": 690,
                 "y": 220
               }
             ]
